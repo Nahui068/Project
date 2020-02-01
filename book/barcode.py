@@ -3,7 +3,7 @@ import cv2
 import time
 def barcode():
 	start_time=time.time()
-	cap = cv2.VideoCapture(cv2.CAP_DSHOW)
+	cap = cv2.VideoCapture(cv2.CAP_DSHOW)#mac은 괄호 안에 0
 	ret,img= cap.read()
 	i = 0
 	barcode_data= None
@@ -13,8 +13,8 @@ def barcode():
 			continue
 		gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 		decoded = pyzbar.decode(gray)
-		cv2.imshow('img',img)
-		if time.time()-start_time>10:
+		#cv2.imshow('img',img)
+		if time.time()-start_time>15:
 			barcode_data = 'timeout'
 			cap.release()
 			cv2.destroyAllWindows()

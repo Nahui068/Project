@@ -4,6 +4,7 @@
 	<title>Main</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
 	<style>
 		body {
 			background: #0079C0; /* fallback for old browsers */
@@ -12,6 +13,13 @@
 			background: -o-linear-gradient(right, #0079C0, #53A3D4);
 			background: linear-gradient(to left, #0079C0, #53A3D4); 
 			font-size: 1.2vmax;
+		}
+		h1 {
+			font-size : 90px;
+			text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+			font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
+			color : white;
+			text-align : center;
 		}
 		.container {
 			padding: 20em;
@@ -101,6 +109,7 @@
 </head>
 <body> 
 	<div class="container">
+		<h1 >OpenbooK</h1>
 		<form method="POST" action= "register" >
 			{% csrf_token %}
 			<button  class="btn-1" value="register"> 유저 등록 </button>

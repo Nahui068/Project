@@ -3,7 +3,6 @@ import cv2
 import numpy as np
 import os
 import time
-
 def face_register(name):
     start_time=time.time()
     video_capture = cv2.VideoCapture(0)
@@ -26,7 +25,7 @@ def face_register(name):
         process_this_frame = not process_this_frame
         if face_yn!=None:
             break
-        if time.time()-start_time>15:
+        if time.time()-start_time>20:
             face_yn='timeout'
             break
     video_capture.release()
@@ -58,15 +57,15 @@ def face_regonize():
             for face_encoding in face_encodings:
                 distances = face_recognition.face_distance(known_face_encodings, face_encoding)
                 min_value=min(distances)
-                print(min_value)
-                if min_value<0.6:
+                print("1 - 일치도 :" ,min_value)
+                if min_value<0.4:
                     index = np.argmin(distances)
                     face_name = known_face_names[index]
         process_this_frame = not process_this_frame
         if face_name!=None:
             print(face_name)
             break
-        if time.time()-start_time>15:
+        if time.time()-start_time>20:
             face_name='timeout'
             break
     video_capture.release()

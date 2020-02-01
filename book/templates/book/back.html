@@ -4,7 +4,7 @@
 	<style>@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 	.Back-page {
-		width: 360px;
+		width: 400px;
 		padding: 8% 0 0;
 		margin: auto;
 	}
@@ -113,6 +113,17 @@
 					</form>
 				</div>
 			</div>
+	{% elif type == 'register error' %}
+        	 <div class="Back-page">
+            	<div class="form">
+	               <form class="Back" method="POST" action="/">
+	                  {% csrf_token %}
+	                  <p>등록되지 않은 사용자입니다.</p>
+	                  <p>아이디와 패스워드를 다시 확인해주세요.</p>
+	                  <button>ok</button>
+	               </form>
+            	</div>
+         	</div>
 	{% elif type == 'borrow_yn error' %}
 			<div class="Back-page">
 				<div class="form">

@@ -38,7 +38,7 @@
 		border: 0;
 		padding: 15px;
 		color: #FFFFFF;
-		font-size: 14px;
+		font-size: 15px;
 		-webkit-transition: all 0.3 ease;
 		transition: all 0.3 ease;
 		cursor: pointer;
@@ -103,13 +103,21 @@
 	}</style>
 </head>
 <body>
+
 	<div class="login-page">
 		<div class="form">
+			<h1>Login</h1><br/>
 			<form class="login-form" method="POST" action="register">
 				{% csrf_token %}
 				<input type="text" placeholder="username" name="user_id"/>
 				<input type="password" placeholder="password" name="user_pw" />
+				<h1></h1>
 				<button>login</button>
+			</form>
+			<p></p>
+			<form class="login-form" method="POST" action="/">
+				{% csrf_token %}
+				<button>Home</button>
 			</form>
 		</div>
 	</div>

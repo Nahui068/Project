@@ -3,7 +3,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth import authenticate
 from django.utils import timezone
 import datetime
-import time #시현용
+import time 
 from book import barcode
 from book import face_reconize
 from .models import Image, User_info, Book, Borrow_list
@@ -30,7 +30,14 @@ def register(request): #예외 등록된 이미지가 이미 있는 경우에도
 				else :
 					return render(request,'book/login.html')
 		else :
-			return render(request,'book/login.html')
+			if(user_id):
+				type = 'register error'
+				context_back={'type': type}
+				return render(request,'book/back.html',context_back)		
+			else :
+				return render(request,'book/login.html')
+	else : 
+		return render(request,'book/login.html')
 
 
 def face_register(request): #얼굴인식이 안될 경우 이 때 메세지(3회 카운트를 어떻게 할지 고민...)
